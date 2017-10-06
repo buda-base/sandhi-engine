@@ -11,6 +11,7 @@ class SandhiTableParser(object):
     def __init__(self, language):
         self.language = language
         self.input_path = os.path.join('resources', '{}_sandhi_charts'.format(language), 'csv')
+        self.output_path = 'pickled_tables'
         self.parsed_tables = {}
         self.current_table = ""
 
@@ -18,15 +19,11 @@ class SandhiTableParser(object):
         tables = [a for a in os.listdir(self.input_path)]
         for t in tables:
             self.current_table = t.rstrip('.csv')
-            absolute_path = os.path.join(self.input_path, t)
 
-            # open the table
-            table = self.open_table(absolute_path)
+            table = self.open_table(os.path.join(self.input_path, t))
 
-            # parse the table
             self.parse_table(table)
 
-        # pickle all tables
         self.save_parsed_tables()
 
     def parse_table(self, content):
@@ -48,7 +45,7 @@ class SandhiTableParser(object):
             return list(csv.reader(csvfile, delimiter=','))
 
     def save_parsed_tables(self):
-        with open(os.path.join('pickled_tables', self.language+'.pickle'), 'wb') as f:
+        with open(os.path.join(self.output_path, self.language+'.pickle'), 'wb') as f:
             pickle.dump(self.parsed_tables, f, pickle.HIGHEST_PROTOCOL)
 
 
