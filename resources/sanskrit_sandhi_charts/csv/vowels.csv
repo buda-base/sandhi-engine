@@ -1,0 +1,30 @@
+final\initial,a,ā,i,ī,u,ū,ṛ,e,ai,o,au,
+a,ā,ā,e,e,o,o,ar,ai,ai,au,au,
+ā,ā,ā,e,e,o,o,ar,ai,ai,au,au,
+i,ya,yā,ī,ī,yu,yū,yṛ,ye,yai,yo,yau,
+ī,ya,yā,ī,ī,yu,yū,yṛ,ye,yai,yo,yau,
+u,va,vā,vi,vī,ū,ū,vṛ,ve,vai,vo,vau,
+ū,va,vā,vi,vī,ū,ū,vṛ,ve,vai,vo,vau,
+ṛ,ra,rā,ri,rī,ru,rū,ṝ,re,rai,ro,rau,
+e,e ',a ā,a i,a ī,a u,a ū,a ṛ,a e,a ai,a o,a au,
+ai,ā a,ā ā,ā i,ā ī,ā u,ā ū,ā ṛ,ā e,ā ai,ā o,ā au,
+o,o ',avā,avi,avī,avu,avū,avṛ,ave,avai,avo,avau,
+au,āva,āvā,āvi,āvī,āvu,āvū,āvṛ,āve,āvai,āvo,āvau,
+,,,,,,,,,,,,
+final\initial,a,A,A,i,i,u,U,f,e,E,o,O
+a,A,A,A,e,e,o,o,ar,E,E,O,O
+A,A,A,A,e,e,o,o,ar,E,E,O,O
+i,ya,yA,yA,I,I,yu,yU,yf,ye,yE,yo,yO
+i,i a,i A,i A,i i,i i,i u,i U,i f,i e,i E,i o,i O
+I,ya,yA,yA,I,I,yu,yU,yf,ye,yE,yo,yO
+I,I a,I A,I A,I i,I i,I u,I U,I f,I e,I E,I o,I O
+u,va,vA,vA,vi,vi,U,U,vf,ve,vE,vo,vO
+u,u a,u A,u A,u i,u i,u u,u U,u f,u e,u E,u o,u O
+U,va,vA,vA,vi,vi,U,U,vf,ve,vE,vo,vO
+U,U a,U A,U A,U i,U i,U u,U U,U f,U e,U E,U o,U O
+f,ra,rA,rA,ri,ri,ru,rU,F,re,rE,ro,rO
+e,e ',a A,a A,a i,a i,a u,a U,a f,a e,a E,a o,a O
+e,e a,e A,e A,e i,e i,e u,e U,e f,e e,e E,e o,e O
+E,A a,A A,A A,A i,A i,A u,A U,A f,A e,A E,A o,A O
+o,o ',avA,a A,avi,avi,avu,avU,avf,ave,avE,avo,avO
+O,Ava,AvA,AvA,Avi,Avi,Avu,AvU,Avf,Ave,AvE,Avo,AvO
