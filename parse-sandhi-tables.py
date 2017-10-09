@@ -1,19 +1,20 @@
 import os
 import csv
-import pickle
+import json
 
 
 class SandhiTableParser(object):
     """
-    Parse the sandhi tables and pickle them
+    Parse the sandhi tables, format them into rules and save them in a json file
     """
 
     def __init__(self, language):
         self.language = language
         self.input_path = os.path.join('resources', '{}_sandhi_charts'.format(language), 'csv')
-        self.output_path = 'pickled_tables'
+        self.output_path = 'sandhi_rules'
         self.parsed_tables = {}
         self.current_table = ""
+        self.sandhi_rules = {}
 
     def parse_tables_folder(self):
         tables = [a for a in os.listdir(self.input_path)]
@@ -24,7 +25,8 @@ class SandhiTableParser(object):
 
             self.parse_table(table)
 
-        self.save_parsed_tables()
+        self.format_into_sandhi_rules()
+        self.save_sandhi_rules()
 
     def parse_table(self, content):
         # set up the table
@@ -39,16 +41,41 @@ class SandhiTableParser(object):
             sandhis = row[1:]   # sandhis
             self.parsed_tables[self.current_table]['table'].append((finals, sandhis))
 
+    def format_into_sandhi_rules(self):
+        for table_name, table in self.parsed_tables.items():
+            initials = table['initials']
+            sandhis = table['table']
+            rules = self.format_rules(initials, sandhis)
+            self.sandhi_rules[table_name] = rules
+
+    @staticmethod
+    def format_rules(initials, sandhi):
+        """
+        Unpacks the sandhi table into individual rules
+
+        :param initials: The first row containing the initial char of the next word
+        :param sandhi: The remaining rows, the first column contains the ending char of the current word
+        :return: [('a', [('a', 'A'), ('A', 'A'), ...]), ('A', [('a', 'A'), ('A', 'A'), ...]), ...]
+        """
+        rules = []
+        for final, sandhied_forms in sandhi:
+            rule = (final, [])
+            for num, form in enumerate(sandhied_forms):
+                rule[1].append((initials[num], form))
+            rules.append(rule)
+        return rules
+
     @staticmethod
     def open_table(path):
         with open(path, 'r', 1, 'utf-8') as csvfile:
             return list(csv.reader(csvfile, delimiter=','))
 
-    def save_parsed_tables(self):
-        with open(os.path.join(self.output_path, self.language+'.pickle'), 'wb') as f:
-            pickle.dump(self.parsed_tables, f, pickle.HIGHEST_PROTOCOL)
-
+    def save_sandhi_rules(self):
+        with open(os.path.join(self.output_path, self.language+'_rules.json'), 'w') as f:
+            json.dump(self.sandhi_rules, f, sort_keys=True)
 
 if __name__ == '__main__':
-    parser = SandhiTableParser('sanskrit')
+    lang = 'sanskrit'
+
+    parser = SandhiTableParser(lang)
     parser.parse_tables_folder()
