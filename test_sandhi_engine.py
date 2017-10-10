@@ -6,6 +6,12 @@ engine = SandhiEngine('sanskrit')
 
 
 class Test(unittest.TestCase):
+    """
+    Tests all the sandhi examples given on the UBC website
+    Note: there might be more than one found sandhi,
+          only the presence of "expected" is tested in "found" (the list of possible sandhi solutions)
+    """
+
     # ~C V~
     def test_1(self):
         word1, word2, expected = 'tat', 'eva', 'tad eva'
