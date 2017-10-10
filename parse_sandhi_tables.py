@@ -1,9 +1,10 @@
+# encoding: utf-8
 import os
 import csv
 import json
 
 
-class SandhiTableParser(object):
+class SandhiTableParser:
     """
     Parse the sandhi tables, format them into rules and save them in a json file
     """
@@ -19,7 +20,7 @@ class SandhiTableParser(object):
     def parse_tables_folder(self):
         tables = [a for a in os.listdir(self.input_path)]
         for t in tables:
-            self.current_table = t.rstrip('.csv')
+            self.current_table = t.replace('.csv', '')
 
             table = self.open_table(os.path.join(self.input_path, t))
 
@@ -57,12 +58,12 @@ class SandhiTableParser(object):
         :param sandhi: The remaining rows, the first column contains the ending char of the current word
         :return: [('a', [('a', 'A'), ('A', 'A'), ...]), ('A', [('a', 'A'), ('A', 'A'), ...]), ...]
         """
-        rules = []
+        rules = {}
         for final, sandhied_forms in sandhi:
-            rule = (final, [])
+            rule = []
             for num, form in enumerate(sandhied_forms):
-                rule[1].append((initials[num], form))
-            rules.append(rule)
+                rule.append((initials[num], form))
+            rules[final] = rule
         return rules
 
     @staticmethod
