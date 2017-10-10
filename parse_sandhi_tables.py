@@ -14,33 +14,30 @@ class SandhiTableParser:
         self.input_path = os.path.join('resources', '{}_sandhi_charts'.format(language), 'csv')
         self.output_path = 'sandhi_rules'
         self.parsed_tables = {}
-        self.current_table = ""
         self.sandhi_rules = {}
 
-    def parse_tables_folder(self):
+    def parser(self):
         tables = [a for a in os.listdir(self.input_path)]
-        for t in tables:
-            self.current_table = t.replace('.csv', '')
-
-            table = self.open_table(os.path.join(self.input_path, t))
-
-            self.parse_table(table)
-
+        self.extract_tables(tables)
         self.format_into_sandhi_rules()
         self.save_sandhi_rules()
 
-    def parse_table(self, content):
-        # set up the table
-        self.parsed_tables[self.current_table] = {'initials': [], 'table': []}
+    def extract_tables(self, tables):
+        for t in tables:
+            current_table = t.replace('.csv', '')
+            table_content = self.open_table(os.path.join(self.input_path, t))
 
-        # first row
-        self.parsed_tables[self.current_table]['initials'].extend(content[0][1:])
+            # set up the table
+            self.parsed_tables[current_table] = {'initials': [], 'table': []}
 
-        # the table proper
-        for row in content[1:]:
-            finals = row[0]     # first column
-            sandhis = row[1:]   # sandhis
-            self.parsed_tables[self.current_table]['table'].append((finals, sandhis))
+            # first row
+            self.parsed_tables[current_table]['initials'].extend(table_content[0][1:])
+
+            # the table proper
+            for row in table_content[1:]:
+                finals = row[0]     # first column
+                sandhis = row[1:]   # sandhis
+                self.parsed_tables[current_table]['table'].append((finals, sandhis))
 
     def format_into_sandhi_rules(self):
         for table_name, table in self.parsed_tables.items():
@@ -93,4 +90,4 @@ if __name__ == '__main__':
     lang = 'sanskrit'
 
     parser = SandhiTableParser(lang)
-    parser.parse_tables_folder()
+    parser.parser()
