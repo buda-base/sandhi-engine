@@ -41,6 +41,8 @@ class SandhiTableParser:
 
     def format_into_sandhi_rules(self):
         for table_name, table in self.parsed_tables.items():
+            if table_name == 'vowels':
+                print('ok')
             initials = table['initials']
             sandhis = table['table']
             rules = self.format_rules(initials, sandhis, table_name)
@@ -62,7 +64,10 @@ class SandhiTableParser:
                 case = SandhiTableParser.generate_sandhi_case(table_name, initials[num], form)
                 if case not in rule:
                     rule.append(case)
-            rules[final] = rule
+            if final in rules.keys():
+                rules[final].extend(rule)
+            else:
+                rules[final] = rule
         return rules
 
     @staticmethod
