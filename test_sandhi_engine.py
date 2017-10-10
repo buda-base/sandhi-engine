@@ -268,7 +268,7 @@ class Test(unittest.TestCase):
         self.assertIn(expected, found)
 
     def test_48(self):
-        word1, word2, expected = 'tAn', 'lokAn', 'tA~ lokAn'
+        word1, word2, expected = 'tAn', 'lokAn', 'tA~l lokAn'
         found = engine.apply_sandhi(word1, word2)
         self.assertIn(expected, found)
 
