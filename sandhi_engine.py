@@ -62,14 +62,13 @@ if __name__ == "__main__":
     lang = 'sanskrit'
     engine = SandhiEngine(lang)
 
-    #args = sys.argv
-    args = ['', 'iti', 'uvAca']
+    args = sys.argv
     if len(args) == 3:
         word1 = args[1]
         word2 = args[2]
         print('{} + {} =>'.format(word1, word2), ', '.join(engine.apply_sandhi(word1, word2)))
     else:
-        print('Usage: sandhi_engine.py <word1> <word2>')
+        print('Usage: sandhi_engine.py <word1> <word2>\nNote: enter an empty string ('') for final sandhis')
         print('\nRunning demo:')
         currents = ['Darma', 'Darman', 'rAma', 'rAmoh', 'rAmoH', 'rAmo', 'rAm']
         initial = 'asti'
