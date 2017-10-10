@@ -1,4 +1,5 @@
 # encoding: utf-8
+import sys
 from find_applicable_sandhis import FindApplicableSandhis
 
 
@@ -58,11 +59,18 @@ class SandhiEngine:
 
 
 if __name__ == "__main__":
-    currents = ['Darma', 'Darman', 'rAma', 'rAmoh', 'rAmoH', 'rAmo', 'rAm']
-    initial = 'asti'
     lang = 'sanskrit'
     engine = SandhiEngine(lang)
 
-    print('Tests:')
-    for c in currents:
-        print('{} + {} =>'.format(c, initial), engine.apply_sandhi(c, initial))
+    args = sys.argv
+    if len(args) == 3:
+        word1 = args[1]
+        word2 = args[2]
+        print('{} + {} =>'.format(word1, word2), ', '.join(engine.apply_sandhi(word1, word2)))
+    else:
+        print('Usage: sandhi_engine.py <word1> <word2>')
+        print('\nRunning demo:')
+        currents = ['Darma', 'Darman', 'rAma', 'rAmoh', 'rAmoH', 'rAmo', 'rAm']
+        initial = 'asti'
+        for c in currents:
+            print('{} + {} =>'.format(c, initial), ', '.join(engine.apply_sandhi(c, initial)))

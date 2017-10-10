@@ -46,11 +46,11 @@ class SandhiTableParser:
         for table_name, table in self.parsed_tables.items():
             initials = table['initials']
             sandhis = table['table']
-            rules = self.format_rules(initials, sandhis)
+            rules = self.format_rules(initials, sandhis, table_name)
             self.sandhi_rules[table_name] = rules
 
     @staticmethod
-    def format_rules(initials, sandhi):
+    def format_rules(initials, sandhi, table_name):
         """
         Unpacks the sandhi table into individual rules
 
@@ -62,9 +62,23 @@ class SandhiTableParser:
         for final, sandhied_forms in sandhi:
             rule = []
             for num, form in enumerate(sandhied_forms):
-                rule.append((initials[num], form))
+                case = SandhiTableParser.generate_sandhi_case(table_name, initials[num], form)
+                if case not in rule:
+                    rule.append(case)
             rules[final] = rule
         return rules
+
+    @staticmethod
+    def generate_sandhi_case(table_name, initial, form):
+        if table_name == 'consonants1':
+            if '(' in form:
+                new_final, new_initial = form.strip(')').split('(')
+                case = (initial, (new_final, new_initial))
+            else:
+                case = (initial, (form, initial))
+        else:
+            case = (initial, form)
+        return case
 
     @staticmethod
     def open_table(path):
