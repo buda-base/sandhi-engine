@@ -16,7 +16,7 @@ class SandhiTableParser:
         self.parsed_tables = {}
         self.sandhi_rules = {}
 
-    def parser(self):
+    def parse(self):
         tables = [a for a in os.listdir(self.input_path)]
         self.extract_tables(tables)
         self.format_into_sandhi_rules()
@@ -41,8 +41,6 @@ class SandhiTableParser:
 
     def format_into_sandhi_rules(self):
         for table_name, table in self.parsed_tables.items():
-            if table_name == 'vowels':
-                print('ok')
             initials = table['initials']
             sandhis = table['table']
             rules = self.format_rules(initials, sandhis, table_name)
@@ -95,4 +93,4 @@ if __name__ == '__main__':
     lang = 'sanskrit'
 
     parser = SandhiTableParser(lang)
-    parser.parser()
+    parser.parse()

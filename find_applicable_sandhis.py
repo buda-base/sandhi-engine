@@ -273,7 +273,7 @@ class FindApplicableSandhis:
         # generate them if they don't exist
         if not os.path.isfile(absolute_path_to_sandhi_json):
             parser = SandhiTableParser(self.language)
-            parser.parse_tables_folder()
+            parser.parse()
         with open(absolute_path_to_sandhi_json, 'r') as f:
             self.sandhi_rules = json.load(f)
 

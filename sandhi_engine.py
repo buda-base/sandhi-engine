@@ -62,7 +62,8 @@ if __name__ == "__main__":
     lang = 'sanskrit'
     engine = SandhiEngine(lang)
 
-    args = sys.argv
+    #args = sys.argv
+    args = ['', 'iti', 'uvAca']
     if len(args) == 3:
         word1 = args[1]
         word2 = args[2]
