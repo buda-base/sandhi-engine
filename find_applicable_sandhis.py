@@ -303,5 +303,5 @@ class FindApplicableSandhis:
             form = parts[0]
             diff = parts[1]
             initials = ':'.join(v)
-            formatted.append('{},{}~{}'.format(form, initials, diff))
+            formatted.append('{},{}${}'.format(form, initials, diff))
         return formatted

@@ -46,7 +46,7 @@ class SandhiEngine:
 
             possible_lemmas = []
             for potential_diff in potential_lemma_diffs:
-                initials_of_potential_lemma = potential_diff.split('~')[0].split(':')
+                initials_of_potential_lemma = potential_diff.split('$')[0].split(':')
                 if initial_char in initials_of_potential_lemma:
                     possible_lemmas.append(potential_diff)
 
