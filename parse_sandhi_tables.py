@@ -11,8 +11,9 @@ class SandhiTableParser:
 
     def __init__(self, language):
         self.language = language
-        self.input_path = os.path.join('resources', '{}_sandhi_charts'.format(language), 'csv')
-        self.output_path = 'sandhi_rules'
+        this_dir = os.path.split(__file__)[0]
+        self.input_path = os.path.join(this_dir, 'resources', '{}_sandhi_charts'.format(language), 'csv')
+        self.output_path = os.path.join(this_dir, 'sandhi_rules')
         self.parsed_tables = {}
         self.sandhi_rules = {}
 

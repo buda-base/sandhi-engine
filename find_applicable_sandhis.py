@@ -269,7 +269,7 @@ class FindApplicableSandhis:
             self.add_entries(stem + new_final + '%' + diff, initial)
 
     def load_sandhi_rules(self):
-        absolute_path_to_sandhi_json = os.path.join('sandhi_rules', self.language + '_rules.json')
+        absolute_path_to_sandhi_json = os.path.join(os.path.split(__file__)[0], 'sandhi_rules', self.language + '_rules.json')
         # generate them if they don't exist
         if not os.path.isfile(absolute_path_to_sandhi_json):
             parser = SandhiTableParser(self.language)
