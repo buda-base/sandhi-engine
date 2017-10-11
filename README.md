@@ -1,7 +1,7 @@
 ## Presentation
 This sandhi-engine does not hard-code any sandhi rule. 
 
-* First, it parses [sandhi tables](./sanskrit_sandhi_charts/csv) that readily include all the rules, alternatives and exceptions. [Here](./sanskrit_sandhi_charts/readme.md) is how.
+* First, it parses [sandhi tables](./sanskrit_sandhi_charts/csv) that readily include all the rules, alternatives and exceptions. [Here](./resources/sanskrit_sandhi_charts/readme.md) is how.
 * Then, the content of the tables is fed into a [nested structure](./sandhi_rules/readme.md).
 * Finally, sandhying any two words becomes as simple as [looking up](./test_sandhi_engine.py#L18) the nested structure using the finals of word one and the initials of word two.  
 
