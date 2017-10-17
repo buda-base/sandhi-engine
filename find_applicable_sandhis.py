@@ -137,7 +137,7 @@ class FindApplicableSandhis:
 
             diff += '='+str(self.sandhi_types[name])  # adding sandhi type
             # adding the entries
-            self.add_entries(stem + new_final + '%' + diff, new_initial)
+            self.add_entries(stem + new_final + '%' + diff, initial)
 
     def find_consonant2_sandhis(self, stem, final, name):
         """
