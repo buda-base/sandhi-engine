@@ -70,7 +70,7 @@ if __name__ == "__main__":
     else:
         print('Usage: sandhi_engine.py <word1> <word2>\nNote: enter an empty string ('') for final sandhis')
         print('\nRunning demo:')
-        currents = ['Darma', 'Darman', 'rAma', 'rAmoh', 'rAmoH', 'rAmo', 'rAm']
-        initial = 'asti'
+        currents = ['tat', 'Darma', 'Darman', 'rAma', 'rAmoh', 'rAmoH', 'rAmo', 'rAm']
+        initial = 'Saram'  # 'asti'
         for c in currents:
             print('{} + {} =>'.format(c, initial), ', '.join(engine.apply_sandhi(c, initial)))
