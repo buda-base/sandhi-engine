@@ -22,8 +22,8 @@ class FindApplicableSandhis:
             'consonants2': 4,
             'visarga1': 5,
             'visarga2': 6,
-            'cC_words': 7,
-            'absolute_final_consonants': 8,
+            'absolute_final_consonants': 7,
+            'cC_words': 8,
             'punar': 9
         }
 
