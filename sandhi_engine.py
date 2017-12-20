@@ -74,3 +74,5 @@ if __name__ == "__main__":
         initial = 'asti'
         for c in currents:
             print('{} + {} =>'.format(c, initial), ', '.join(engine.apply_sandhi(c, initial)))
+        c, initial = 'pAhi', 'evam'
+        print('{} + {} =>'.format(c, initial), ', '.join(engine.apply_sandhi(c, initial)))
