@@ -1,17 +1,17 @@
-final\initial,a,a,A,A,A,A,i,i,i,i,u,u,U,U,f,f,e,e,E,E,o,o,O,O
+final\initial,a,a,A,A,A,A,i,i,I,I,u,u,U,U,f,f,e,e,E,E,o,o,O,O
 a,A,A,A,A,A,A,e,e,e,e,o,o,o,o,ar,a r,E,E,E,E,O,O,O,O
 A,A,A,A,A,A,A,e,e,e,e,o,o,o,o,ar,a r,E,E,E,E,O,O,O,O
 i,ya,y a,yA,y A,yA,y A,I,I,I,I,yu,y u,yU,y U,yf,y f,ye,y e,yE,y E,yo,y o,yO,y O
-i,i a,i a,i A,i A,i A,i A,i i,i i,i i,i i,i u,i u,i U,i U,i f,i f,i e,i e,i E,i E,i o,i o,i O,i O
+i,i a,i a,i A,i A,i A,i A,i i,i i,i I,i I,i u,i u,i U,i U,i f,i f,i e,i e,i E,i E,i o,i o,i O,i O
 I,ya,y a,yA,y A,yA,y A,I,I,I,I,yu,y u,yU,y U,yf,y f,ye,y e,yE,y E,yo,y o,yO,y O
-I,I a,I a,I A,I A,I A,I A,I i,I i,I i,I i,I u,I u,I U,I U,I f,I f,I e,I e,I E,I E,I o,I o,I O,I O
-u,va,v a,vA,v A,vA,v A,vi,v i,vi,v i,U,U,U,U,vf,v f,ve,ve,vE,v E,vo,v o,vO,v O
-u,u a,u a,u A,u A,u A,u A,u i,u i,u i,u i,u u,u u,u U,u U,u f,u f,u e,u e,u E,u E,u o,u o,u O,u O
-U,va,v a,vA,v A,vA,v A,vi,v i,vi,v i,U,U,U,U,vf,v f,ve,v e,vE,v E,vo,v o,vO,v O
-U,U a,U a,U A,U A,U A,U A,U i,U i,U i,U i,U u,U u,U U,U U,U f,U f,U e,U e,U E,U E,U o,U o,U O,U O
-f,ra,r a,rA,r A,rA,r A,ri,r i,ri,r i,ru,r u,rU,r U,F,F,re,r e,rE,r E,ro,r o,rO,r O
-e,e ',e ',a A,a A,a A,a A,a i,a i,a i,a i,a u,a u,a U,a U,a f,a f,a e,a e,a E,a E,a o,a o,a O,a O
-e,e a,e a,e A,e A,e A,e A,e i,e i,e i,e i,e u,e u,e U,e U,e f,e f,e e,e e,e E,e E,e o,e o,e O,e O
-E,A a,A a,A A,A A,A A,A A,A i,A i,A i,A i,A u,A u,A U,A U,A f,A f,A e,A e,A E,A E,A o,A o,A O,A O
-o,o ',o ',avA,a vA,a A,a A,avi,a vi,avi,a vi,avu,a vu,avU,a vU,avf,a vf,ave,a ve,avE,a vE,avo,av o,avO,av O
-O,Ava,Av a,AvA,Av A,AvA,Av A,Avi,Av i,Avi,Av i,Avu,Av u,AvU,Av U,Avf,Av f,Ave,Av e,AvE,Av E,Avo,Av o,AvO,Av O
+I,I a,I a,I A,I A,I A,I A,I i,I i,I I,I I,I u,I u,I U,I U,I f,I f,I e,I e,I E,I E,I o,I o,I O,I O
+u,va,v a,vA,v A,vA,v A,vi,v i,vI,v I,U,U,U,U,vf,v f,ve,ve,vE,v E,vo,v o,vO,v O
+u,u a,u a,u A,u A,u A,u A,u i,u i,u I,u I,u u,u u,u U,u U,u f,u f,u e,u e,u E,u E,u o,u o,u O,u O
+U,va,v a,vA,v A,vA,v A,vi,v i,vI,v I,U,U,U,U,vf,v f,ve,v e,vE,v E,vo,v o,vO,v O
+U,U a,U a,U A,U A,U A,U A,U i,U i,U I,U I,U u,U u,U U,U U,U f,U f,U e,U e,U E,U E,U o,U o,U O,U O
+f,ra,r a,rA,r A,rA,r A,ri,r i,rI,r I,ru,r u,rU,r U,F,F,re,r e,rE,r E,ro,r o,rO,r O
+e,e ',e ',a A,a A,a A,a A,a i,a i,a I,a I,a u,a u,a U,a U,a f,a f,a e,a e,a E,a E,a o,a o,a O,a O
+e,e a,e a,e A,e A,e A,e A,e i,e i,e I,e I,e u,e u,e U,e U,e f,e f,e e,e e,e E,e E,e o,e o,e O,e O
+E,A a,A a,A A,A A,A A,A A,A i,A i,A I,A I,A u,A u,A U,A U,A f,A f,A e,A e,A E,A E,A o,A o,A O,A O
+o,o ',o ',avA,a vA,a A,a A,avi,a vi,avI,a vI,avu,a vu,avU,a vU,avf,a vf,ave,a ve,avE,a vE,avo,av o,avO,av O
+O,Ava,Av a,AvA,Av A,AvA,Av A,Avi,Av i,AvI,Av I,Avu,Av u,AvU,Av U,Avf,Av f,Ave,Av e,AvE,Av E,Avo,Av o,AvO,Av O
