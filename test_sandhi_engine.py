@@ -12,6 +12,15 @@ class Test(unittest.TestCase):
     Note: there might be more than one found sandhi,
           only the presence of "expected" is tested in "found" (the list of possible sandhi solutions)
     """
+    def bugfix1(self):
+        word1, word2, expected = 'niH', 'Ikzina', 'nir Ikzina'
+        found = engine.apply_sandhi(word1, word2)
+        self.assertIn(expected, found)
+
+    def bugfix2(self):
+        word1, word2, expected = 'tattva', 'Ikzina', 'tattvekzina'
+        found = engine.apply_sandhi(word1, word2)
+        self.assertIn(expected, found)
 
     # ~C V~
     def test_1(self):
