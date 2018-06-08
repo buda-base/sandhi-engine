@@ -10,7 +10,7 @@ class FindApplicableSandhis:
     """
 
     """
-    def __init__(self, language):
+    def __init__(self, language, idempotent=False):
         self.language = language
         self.sandhi_rules = {}
         self.load_sandhi_rules()
@@ -24,8 +24,15 @@ class FindApplicableSandhis:
             'visarga2': 6,
             'absolute_final_consonants': 7,
             'cC_words': 8,
-            'punar': 9
+            'punar': 9,
+            'idem': 10
         }
+        self.idempotent = idempotent
+        if idempotent:
+            idempotent_path = os.path.join(os.path.split(__file__)[0], 'resources',
+                                           'sanskrit_sandhi_charts', 'idempotent_sandhis.json')
+            with open(idempotent_path, 'r') as f:
+                self.idempotent_initials = json.load(f)
 
     def all_possible_sandhis(self, inflected_form):
         """
@@ -45,18 +52,26 @@ class FindApplicableSandhis:
         a = 'vowels'
         if final in self.sandhi_rules[a]:
             self.find_vowel_sandhis(stem, final, a)
+            if self.idempotent:
+                self.find_idempotent(stem, final, a)
 
         b = 'consonants1'
         if final in self.sandhi_rules[b]:
             self.find_consonant1_sandhis(stem, final, b)
+            if self.idempotent:
+                self.find_idempotent(stem, final, b)
 
         c = 'consonants2'
         if final in self.sandhi_rules[c]:
             self.find_consonant2_sandhis(stem, final, c)
+            if self.idempotent:
+                self.find_idempotent(stem, final, c)
 
         d = 'cC_words'
         if final in self.sandhi_rules[d]:
             self.find_cch_words_sandhis(stem, final, d)
+            if self.idempotent:
+                self.find_idempotent(stem, final, d)
 
         # the following three sandhis apply to the last two characters
         final = inflected_form[-2:]
@@ -65,14 +80,20 @@ class FindApplicableSandhis:
         e = 'consonants1_vowels'
         if final in self.sandhi_rules[e]:
             self.find_visarga_or_consonants1_vowels_sandhis(stem, final, e)
+            if self.idempotent:
+                self.find_idempotent(stem, final, e)
 
         f = 'visarga1'
         if final in self.sandhi_rules[f]:
             self.find_visarga_or_consonants1_vowels_sandhis(stem, final, f)
+            if self.idempotent:
+                self.find_idempotent(stem, final, f)
 
         g = 'visarga2'
         if final in self.sandhi_rules[g]:
             self.find_visarga_or_consonants1_vowels_sandhis(stem, final, g)
+            if self.idempotent:
+                self.find_idempotent(stem, final, g)
 
         h = 'absolute_final_consonants'
         self.find_absolute_finals_sandhis(inflected_form, h)
@@ -81,8 +102,19 @@ class FindApplicableSandhis:
         i = 'punar'
         if inflected_form == i:
             self.find_punar_sandhis(i)
+            if self.idempotent:
+                self.find_idempotent(stem, final, i)
 
         return self.format_found_sandhis()
+
+    def find_idempotent(self, stem, final, name):
+        cases = []
+        cases.extend(self.idempotent_initials[name])
+
+        for initial in cases:
+            diff = '/-+{}'.format(initial)
+            diff += '=' + str(self.sandhi_types['idem'])
+            self.add_entries(stem + final + '%' + diff, initial)
 
     def find_vowel_sandhis(self, stem, final, name):
         """

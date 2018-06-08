@@ -7,9 +7,9 @@ class SandhiEngine:
     """
 
     """
-    def __init__(self, language):
+    def __init__(self, language, idempotent=False):
         # self.language = language
-        self.find = FindApplicableSandhis(language)
+        self.find = FindApplicableSandhis(language, idempotent=idempotent)
 
     def apply_sandhi(self, current_word, next_word):
         applied = []
