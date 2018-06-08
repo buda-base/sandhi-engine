@@ -50,26 +50,18 @@ class FindApplicableSandhis:
         a = 'vowels'
         if final in self.sandhi_rules[a]:
             self.find_vowel_sandhis(stem, final, a)
-            if self.idempotent:
-                self.find_idempotent(stem, final, a)
 
         b = 'consonants1'
         if final in self.sandhi_rules[b]:
             self.find_consonant1_sandhis(stem, final, b)
-            if self.idempotent:
-                self.find_idempotent(stem, final, b)
 
         c = 'consonants2'
         if final in self.sandhi_rules[c]:
             self.find_consonant2_sandhis(stem, final, c)
-            if self.idempotent:
-                self.find_idempotent(stem, final, c)
 
         d = 'cC_words'
         if final in self.sandhi_rules[d]:
             self.find_cch_words_sandhis(stem, final, d)
-            if self.idempotent:
-                self.find_idempotent(stem, final, d)
 
         # the following three sandhis apply to the last two characters
         final = inflected_form[-2:]
@@ -78,20 +70,14 @@ class FindApplicableSandhis:
         e = 'consonants1_vowels'
         if final in self.sandhi_rules[e]:
             self.find_visarga_or_consonants1_vowels_sandhis(stem, final, e)
-            if self.idempotent:
-                self.find_idempotent(stem, final, e)
 
         f = 'visarga1'
         if final in self.sandhi_rules[f]:
             self.find_visarga_or_consonants1_vowels_sandhis(stem, final, f)
-            if self.idempotent:
-                self.find_idempotent(stem, final, f)
 
         g = 'visarga2'
         if final in self.sandhi_rules[g]:
             self.find_visarga_or_consonants1_vowels_sandhis(stem, final, g)
-            if self.idempotent:
-                self.find_idempotent(stem, final, g)
 
         h = 'absolute_final_consonants'
         self.find_absolute_finals_sandhis(inflected_form, h)
@@ -100,8 +86,6 @@ class FindApplicableSandhis:
         i = 'punar'
         if inflected_form == i:
             self.find_punar_sandhis(i)
-            if self.idempotent:
-                self.find_idempotent(stem, final, i)
 
         return self.format_found_sandhis()
 
@@ -135,6 +119,8 @@ class FindApplicableSandhis:
                 diff = '-{}+{}/-+{}'.format(new_final, final, initial)
 
             diff += '='+str(self.sandhi_types[name])  # adding sandhi type
+            if self.idempotent:
+                diff += self.idempotent_groups[name]
             # adding the entries
             self.add_entries(stem + new_final + '%' + diff, initial)
 
@@ -162,6 +148,8 @@ class FindApplicableSandhis:
                 diff = '-{}+{}/- {}+{}'.format(new_final, final, new_initial, initial)
 
             diff += '='+str(self.sandhi_types[name])  # adding sandhi type
+            if self.idempotent:
+                diff += self.idempotent_groups[name]
             # adding the entries
             self.add_entries(stem + new_final + '%' + diff, initial)
 
@@ -185,6 +173,8 @@ class FindApplicableSandhis:
                 diff = '-{}+{}/- +'.format(new_final, final)
 
             diff += '='+str(self.sandhi_types[name])  # adding sandhi type
+            if self.idempotent:
+                diff += self.idempotent_groups[name]
             # adding the entries
             self.add_entries(stem + new_final + '%' + diff, initial)
 
@@ -214,6 +204,8 @@ class FindApplicableSandhis:
                 diff = '-{}+{}/- +'.format(new_final, final)
 
             diff += '='+str(self.sandhi_types[name])  # adding sandhi type
+            if self.idempotent:
+                diff += self.idempotent_groups[name]
             # adding the entries
             self.add_entries(stem + new_final + '%' + diff, initial)
 
@@ -268,6 +260,8 @@ class FindApplicableSandhis:
             diff = '/- {}+{}'.format(new_initial, initial)
 
             diff += '=' + str(self.sandhi_types[name])  # adding sandhi type
+            if self.idempotent:
+                diff += self.idempotent_groups[name]
             # adding the entries
             self.add_entries(stem + final + '%' + diff, initial)
 
@@ -291,6 +285,8 @@ class FindApplicableSandhis:
                 diff = '-{}+{}/- +'.format(new_final, final)
 
             diff += '=' + str(self.sandhi_types[name])  # adding sandhi type
+            if self.idempotent:
+                diff += self.idempotent_groups[name]
             # adding the entries
             self.add_entries(stem + new_final + '%' + diff, initial)
 
