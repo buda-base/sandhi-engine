@@ -28,11 +28,9 @@ class FindApplicableSandhis:
             'idem': 10
         }
         self.idempotent = idempotent
-        if idempotent:
-            idempotent_path = os.path.join(os.path.split(__file__)[0], 'resources',
-                                           'sanskrit_sandhi_charts', 'idempotent_sandhis.json')
-            with open(idempotent_path, 'r') as f:
-                self.idempotent_initials = json.load(f)
+        self.idempotent_groups = {'vowels': '£1', 'consonants1': '£2', 'consonants2': '£3',
+                                  'cC_words': '£4', 'consonants1_vowels': '£5', 'visarga1': '£6',
+                                  'visarga2': '£7', 'absolute_final_consonants': '£8', 'punar': '£9'}
 
     def all_possible_sandhis(self, inflected_form):
         """
@@ -108,13 +106,9 @@ class FindApplicableSandhis:
         return self.format_found_sandhis()
 
     def find_idempotent(self, stem, final, name):
-        cases = []
-        cases.extend(self.idempotent_initials[name])
-
-        for initial in cases:
-            diff = '/-+{}'.format(initial)
-            diff += '=' + str(self.sandhi_types['idem'])
-            self.add_entries(stem + final + '%' + diff, initial)
+        diff = '/-+{}'.format(self.idempotent_groups[name])
+        diff += '=' + str(self.sandhi_types['idem'])
+        self.add_entries(stem + final + '%' + diff, '£')
 
     def find_vowel_sandhis(self, stem, final, name):
         """
