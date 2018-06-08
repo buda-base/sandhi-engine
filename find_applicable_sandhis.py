@@ -30,7 +30,7 @@ class FindApplicableSandhis:
         self.idempotent = idempotent
         self.idempotent_groups = {'vowels': '£1', 'consonants1': '£2', 'consonants2': '£3',
                                   'cC_words': '£4', 'consonants1_vowels': '£5', 'visarga1': '£6',
-                                  'visarga2': '£7', 'absolute_final_consonants': '£8', 'punar': '£9'}
+                                  'visarga2': '£7', 'punar': '£8'}
 
     def all_possible_sandhis(self, inflected_form):
         """
