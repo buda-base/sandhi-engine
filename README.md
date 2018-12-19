@@ -1,4 +1,4 @@
-## Presentation
+## Presentation 
 This sandhi-engine does not hard-code any sandhi rule. 
 
 * First, it parses [sandhi tables](./sanskrit_sandhi_charts/csv) that readily include all the rules, alternatives and exceptions. [Here](./resources/sanskrit_sandhi_charts/readme.md) is how.
